@@ -1,5 +1,23 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+	text-size-adjust: none;
+	font-family: helvetica, arial, sans-serif;
+	line-height: 1.2;
+	user-select: none;
+	cursor: default;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+*::before,
+*::after {
+	box-sizing: border-box;
 }
