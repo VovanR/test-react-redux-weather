@@ -1,12 +1,21 @@
-const URL = 'http://api.wunderground.com/api/';
+export const FETCH_WEATHER_REQUEST = 'FETCH_WEATHER_REQUEST';
+export const FETCH_WEATHER_SUCCESS = 'FETCH_WEATHER_SUCCESS';
+export const FETCH_WEATHER_FAILURE = 'FETCH_WEATHER_FAILURE';
 
-export const getWeather = () => dispatch => {
+const URL = 'http://api.wunderground.com/api/';
+const API_ID = '291bda72a5d7ba60';
+
+export const getWeather = position => dispatch => {
+  dispatch({
+    type: FETCH_WEATHER_REQUEST,
+    payload: {isLoading: true}
+  });
+
   const params = [
-    '291bda72a5d7ba60',
+    API_ID,
     'hourly',
     'q',
-    'Russia',
-    'Saint_Petersburg'
+    position
   ];
   const paramsString = params.join('/');
   const request = new Request(`${URL}${paramsString}.json`);
@@ -16,13 +25,13 @@ export const getWeather = () => dispatch => {
     .then(processData)
     .then(data => {
       dispatch({
-        type: 'FETCH_WEATHER_SUCCESS',
-        payload: data
+        type: FETCH_WEATHER_SUCCESS,
+        payload: {data}
       });
     })
     .catch(error => {
       dispatch({
-        type: 'FETCH_WEATHER_FAIL',
+        type: FETCH_WEATHER_FAILURE,
         payload: {error: error.message}
       });
     });

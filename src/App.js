@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import './App.css';
-import {getWeather} from './actions/weather';
+import {getCity} from './actions/city';
 import ApiCredits from './components/ApiCredits';
 import ErrorMessage from './components/ErrorMessage';
 import Loading from './components/Loading';
@@ -10,23 +10,27 @@ import Item from './components/Item';
 
 class App extends Component {
   componentWillMount(){
-    this.props.onGetWeather();
+    this.props.onGetCity();
   }
 
   render() {
-    const {weather} = this.props;
+    const {
+      weather,
+      isLoading,
+      errorMessage
+    } = this.props;
 
-    if (weather.error) {
-      return <ErrorMessage message={weather.error}/>;
+    if (errorMessage) {
+      return <ErrorMessage message={errorMessage}/>;
     }
 
-    if (!weather.length) {
+    if (isLoading) {
       return <Loading/>;
     }
 
     return (
       <div className="app">
-				{weather.map((item, index) => (
+				{weather.data.map((item, index) => (
           <Item
 							key={index}
 							{...item}
@@ -40,12 +44,23 @@ class App extends Component {
 }
 
 export default connect(
-  state => ({
-    weather: state.weather
-  }),
+  state => {
+    const {
+      city,
+      weather
+    } = state;
+
+    return {
+      isLoading: city.isLoading || weather.isLoading,
+      errorMessage: city.error || weather.error,
+      city,
+      weather
+    };
+  },
+
   dispatch => ({
-    onGetWeather: () => {
-      dispatch(getWeather())
+    onGetCity: () => {
+      dispatch(getCity())
     }
   })
 )(App);
