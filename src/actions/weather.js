@@ -2,7 +2,7 @@ export const FETCH_WEATHER_REQUEST = 'FETCH_WEATHER_REQUEST';
 export const FETCH_WEATHER_SUCCESS = 'FETCH_WEATHER_SUCCESS';
 export const FETCH_WEATHER_FAILURE = 'FETCH_WEATHER_FAILURE';
 
-const URL = 'http://api.wunderground.com/api/';
+const URL = 'https://api.wunderground.com/api/';
 const API_ID = '291bda72a5d7ba60';
 
 export const getWeather = position => dispatch => {
