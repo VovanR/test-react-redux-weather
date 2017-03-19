@@ -1,0 +1,11 @@
+.param {
+}
+
+.param__value {
+	display: inline-block;
+}
+
+.param__units {
+	display: inline-block;
+	margin-left: 0.15em;
+}

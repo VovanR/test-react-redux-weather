@@ -1,2 +1,15 @@
-.App {
+.app {
+	text-size-adjust: none;
+	font-family: helvetica, arial, sans-serif;
+	line-height: 1.2;
+	user-select: none;
+	cursor: default;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 50%;
+	width: 100%;
+	min-width: calc(100vh / 2);
+	max-width: calc(100vh / 1.4);
+	transform: translateX(-50%);
 }
