@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import './App.css';
 import {getWeather} from './actions/weather';
 import ApiCredits from './components/ApiCredits';
+import ErrorMessage from './components/ErrorMessage';
 import Loading from './components/Loading';
 import Item from './components/Item';
 
@@ -13,13 +14,19 @@ class App extends Component {
   }
 
   render() {
-    if (!this.props.weather.length) {
+    const {weather} = this.props;
+
+    if (weather.error) {
+      return <ErrorMessage message={weather.error}/>;
+    }
+
+    if (!weather.length) {
       return <Loading/>;
     }
 
     return (
       <div className="app">
-				{this.props.weather.map((item, index) => (
+				{weather.map((item, index) => (
           <Item
 							key={index}
 							{...item}
