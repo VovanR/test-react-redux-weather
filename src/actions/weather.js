@@ -41,7 +41,7 @@ function processData(data) {
   return data.hourly_forecast.reduce((a, b) => {
     a.push({
       hour: parseInt(b.FCTTIME.hour, 10),
-      iconUrl: b.icon_url,
+      iconUrl: b.icon_url.replace(/^http:/, 'https:'),
       temp: parseInt(b.temp.metric, 10),
       windDegree: parseInt(b.wdir.degrees, 10),
       windDirection: b.wdir.dir,
