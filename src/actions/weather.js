@@ -1,9 +1,8 @@
+import {API_ID, WEATHER_API_URL} from '../const';
+
 export const FETCH_WEATHER_REQUEST = 'FETCH_WEATHER_REQUEST';
 export const FETCH_WEATHER_SUCCESS = 'FETCH_WEATHER_SUCCESS';
 export const FETCH_WEATHER_FAILURE = 'FETCH_WEATHER_FAILURE';
-
-const URL = 'https://api.wunderground.com/api/';
-const API_ID = '291bda72a5d7ba60';
 
 export const getWeather = position => dispatch => {
   dispatch({
@@ -18,7 +17,7 @@ export const getWeather = position => dispatch => {
     position
   ];
   const paramsString = params.join('/');
-  const request = new Request(`${URL}${paramsString}.json`);
+  const request = new Request(`${WEATHER_API_URL}${paramsString}.json`);
 
   fetch(request)
     .then(response => response.json())

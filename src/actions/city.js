@@ -1,8 +1,13 @@
 import {getWeather} from './weather';
+import {AUTOCOMPLETE_API_URL} from '../const';
 
 export const FETCH_CITY_REQUEST = 'FETCH_CITY_REQUEST';
 export const FETCH_CITY_SUCCESS = 'FETCH_CITY_SUCCESS';
 export const FETCH_CITY_FAILURE = 'FETCH_CITY_FAILURE';
+
+export const SEARCH_CITY_REQUEST = 'SEARCH_CITY_REQUEST';
+export const SEARCH_CITY_SUCCESS = 'SEARCH_CITY_SUCCESS';
+export const SEARCH_CITY_FAILURE = 'SEARCH_CITY_FAILURE';
 
 export const getCity = () => dispatch => {
   dispatch({
@@ -39,4 +44,29 @@ export const getCity = () => dispatch => {
   } else {
     geoFailure();
   }
+};
+
+export const searchCity = query => dispatch => {
+  dispatch({
+    type: SEARCH_CITY_REQUEST,
+    payload: {isLoading: true}
+  });
+
+  const request = new Request(`${AUTOCOMPLETE_API_URL}/aq?query=${query}`);
+
+  fetch(request)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data.RESULTS);
+      dispatch({
+        type: SEARCH_CITY_SUCCESS,
+        payload: {data: data.RESULTS}
+      });
+    })
+    .catch(error => {
+      dispatch({
+        type: SEARCH_CITY_FAILURE,
+        payload: {error: error.message}
+      });
+    });
 };
