@@ -9,7 +9,7 @@ const initialState = {isLoading: true};
 export default function searchCity(state = initialState, action) {
   switch (action.type) {
     case SEARCH_CITY_REQUEST: {
-      return action.payload;
+      return {isLoading: true};
     }
     case SEARCH_CITY_SUCCESS: {
       return action.payload;

@@ -1,19 +1,18 @@
 import {getWeather} from './weather';
 import {AUTOCOMPLETE_API_URL} from '../const';
 
-export const FETCH_CITY_REQUEST = 'FETCH_CITY_REQUEST';
-export const FETCH_CITY_SUCCESS = 'FETCH_CITY_SUCCESS';
-export const FETCH_CITY_FAILURE = 'FETCH_CITY_FAILURE';
+export const GET_CITY_REQUEST = 'GET_CITY_REQUEST';
+export const GET_CITY_SUCCESS = 'GET_CITY_SUCCESS';
+export const GET_CITY_FAILURE = 'GET_CITY_FAILURE';
 
 export const SEARCH_CITY_REQUEST = 'SEARCH_CITY_REQUEST';
 export const SEARCH_CITY_SUCCESS = 'SEARCH_CITY_SUCCESS';
 export const SEARCH_CITY_FAILURE = 'SEARCH_CITY_FAILURE';
 
+export const SET_ACTIVE_CITY = 'SET_ACTIVE_CITY';
+
 export const getCity = () => dispatch => {
-  dispatch({
-    type: FETCH_CITY_REQUEST,
-    payload: {isLoading: true}
-  });
+  dispatch({type: GET_CITY_REQUEST});
 
   function geoSuccess(position) {
     const {
@@ -23,7 +22,7 @@ export const getCity = () => dispatch => {
     const data = `${latitude},${longitude}`;
 
     dispatch({
-      type: FETCH_CITY_SUCCESS,
+      type: GET_CITY_SUCCESS,
       payload: {data}
     });
 
@@ -32,7 +31,7 @@ export const getCity = () => dispatch => {
 
   function geoFailure(error) {
     dispatch({
-      type: FETCH_CITY_FAILURE,
+      type: GET_CITY_FAILURE,
       payload: {
         error: error.message
       }
@@ -46,27 +45,9 @@ export const getCity = () => dispatch => {
   }
 };
 
-export const searchCity = query => dispatch => {
+export const setActiveCity = cityId => dispatch => {
   dispatch({
-    type: SEARCH_CITY_REQUEST,
-    payload: {isLoading: true}
+    type: SET_ACTIVE_CITY,
+    payload: cityId
   });
-
-  const request = new Request(`${AUTOCOMPLETE_API_URL}/aq?query=${query}`);
-
-  fetch(request)
-    .then(response => response.json())
-    .then(data => {
-      console.log(data.RESULTS);
-      dispatch({
-        type: SEARCH_CITY_SUCCESS,
-        payload: {data: data.RESULTS}
-      });
-    })
-    .catch(error => {
-      dispatch({
-        type: SEARCH_CITY_FAILURE,
-        payload: {error: error.message}
-      });
-    });
 };

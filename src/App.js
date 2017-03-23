@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import './App.css';
-import {getCity, searchCity} from './actions/city';
+import {getCity} from './actions/city';
 import ApiCredits from './components/ApiCredits';
-import SearchCity from './components/SearchCity';
+import CitySearch from './components/CitySearch';
 import ErrorMessage from './components/ErrorMessage';
 import Loading from './components/Loading';
 import Item from './components/Item';
@@ -23,7 +23,7 @@ class App extends Component {
     } = this.props;
 
     if (city.error) {
-      return <SearchCity/>;
+      return <CitySearch/>;
     }
 
     if (errorMessage) {
@@ -53,7 +53,6 @@ export default connect(
   state => {
     const {
       city,
-      searchCity,
       weather
     } = state;
 
@@ -61,7 +60,6 @@ export default connect(
       isLoading: city.isLoading || weather.isLoading,
       errorMessage: city.error || weather.error,
       city,
-      searchCity,
       weather
     };
   },
@@ -69,10 +67,6 @@ export default connect(
   dispatch => ({
     onGetCity: () => {
       dispatch(getCity())
-    },
-
-    onSearchCity: query => {
-      dispatch(searchCity(query))
     }
   })
 )(App);

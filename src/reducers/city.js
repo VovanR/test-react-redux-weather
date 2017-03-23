@@ -1,20 +1,20 @@
 import {
-  FETCH_CITY_REQUEST,
-  FETCH_CITY_SUCCESS,
-  FETCH_CITY_FAILURE
+  GET_CITY_REQUEST,
+  GET_CITY_SUCCESS,
+  GET_CITY_FAILURE
 } from '../actions/city';
 
 const initialState = {isLoading: true};
 
 export default function city(state = initialState, action) {
   switch (action.type) {
-    case FETCH_CITY_REQUEST: {
+    case GET_CITY_REQUEST: {
+      return {isLoading: true};
+    }
+    case GET_CITY_SUCCESS: {
       return action.payload;
     }
-    case FETCH_CITY_SUCCESS: {
-      return action.payload;
-    }
-    case FETCH_CITY_FAILURE: {
+    case GET_CITY_FAILURE: {
       return action.payload;
     }
     default: {

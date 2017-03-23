@@ -1,14 +1,11 @@
 import {API_ID, WEATHER_API_URL} from '../const';
 
-export const FETCH_WEATHER_REQUEST = 'FETCH_WEATHER_REQUEST';
-export const FETCH_WEATHER_SUCCESS = 'FETCH_WEATHER_SUCCESS';
-export const FETCH_WEATHER_FAILURE = 'FETCH_WEATHER_FAILURE';
+export const GET_WEATHER_REQUEST = 'GET_WEATHER_REQUEST';
+export const GET_WEATHER_SUCCESS = 'GET_WEATHER_SUCCESS';
+export const GET_WEATHER_FAILURE = 'GET_WEATHER_FAILURE';
 
 export const getWeather = position => dispatch => {
-  dispatch({
-    type: FETCH_WEATHER_REQUEST,
-    payload: {isLoading: true}
-  });
+  dispatch({type: GET_WEATHER_REQUEST});
 
   const params = [
     API_ID,
@@ -24,13 +21,13 @@ export const getWeather = position => dispatch => {
     .then(processData)
     .then(data => {
       dispatch({
-        type: FETCH_WEATHER_SUCCESS,
+        type: GET_WEATHER_SUCCESS,
         payload: {data}
       });
     })
     .catch(error => {
       dispatch({
-        type: FETCH_WEATHER_FAILURE,
+        type: GET_WEATHER_FAILURE,
         payload: {error: error.message}
       });
     });
