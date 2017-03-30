@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import './index.css';
-import {setCitySearchQuery} from '../../actions/citySearch';
-import {setActiveCity} from '../../actions/city';
 import {connect} from 'react-redux';
+import DebounceInput from 'react-debounce-input';
+import {setAutocompleteQuery} from '../../ducks/autocomplete';
+import {setActiveCity} from '../../ducks/activeCity';
 import CitySearchList from '../CitySearchList';
 
 class CitySearch extends Component {
@@ -16,25 +17,27 @@ class CitySearch extends Component {
     this.props.onChangeCitySearch(e.target.value);
   }
 
-  handleClickCity(cityId) {
-    this.props.onChangeActiveCity(cityId);
+  handleClickCity(position) {
+    this.props.onChangeActiveCity(position);
   }
 
   render() {
     return (
       <div className="city-search">
-        <input
+        <DebounceInput
           className="city-search__input"
-          autoFocus
-          value={this.props.citySearchQuery}
-          onChange={this.handleChangeQuery}
+          minLength={2}
+          debounceTimeout={500}
           placeholder="City"
           type="search"
+          value={this.props.autocomplete.query}
+          onChange={this.handleChangeQuery}
+          autoFocus
           />
 
-        {this.props.citySearchResult && this.props.citySearchResult.data ? (
+        {this.props.autocomplete && this.props.autocomplete.data ? (
           <CitySearchList
-            data={this.props.citySearchResult.data}
+            data={this.props.autocomplete.data}
             onClickCity={this.handleClickCity}
             />
         ) : null}
@@ -50,23 +53,21 @@ CitySearch.defaultProps = {
 export default connect(
   state => {
     const {
-      citySearchQuery,
-      citySearchResult
+      autocomplete
     } = state;
 
     return {
-      citySearchQuery,
-      citySearchResult
+      autocomplete
     };
   },
 
   dispatch => ({
     onChangeCitySearch: query => {
-      dispatch(setCitySearchQuery(query));
+      dispatch(setAutocompleteQuery(query));
     },
 
-    onChangeActiveCity: cityId => {
-      dispatch(setActiveCity(cityId));
+    onChangeActiveCity: position => {
+      dispatch(setActiveCity(position));
     }
   })
 )(CitySearch);

@@ -1,33 +1,46 @@
 import {API_ID, WEATHER_API_URL} from '../const';
 
-export const GET_WEATHER_REQUEST = 'GET_WEATHER_REQUEST';
-export const GET_WEATHER_SUCCESS = 'GET_WEATHER_SUCCESS';
-export const GET_WEATHER_FAILURE = 'GET_WEATHER_FAILURE';
+const REQUEST = 'weather/REQUEST';
+const SUCCESS = 'weather/SUCCESS';
+const FAILURE = 'weather/FAILURE';
+
+const initialState = {isLoading: true};
+
+export default function weather(state = initialState, action) {
+  switch (action.type) {
+    case REQUEST:
+      return {isLoading: true};
+    case SUCCESS:
+    case FAILURE:
+      return action.payload;
+    default:
+      return state;
+  }
+}
 
 export const getWeather = position => dispatch => {
-  dispatch({type: GET_WEATHER_REQUEST});
+  dispatch({type: REQUEST});
 
   const params = [
     API_ID,
     'hourly',
     'q',
-    position
+    `${position.lat},${position.lng}`
   ];
   const paramsString = params.join('/');
-  const request = new Request(`${WEATHER_API_URL}${paramsString}.json`);
 
-  fetch(request)
+  fetch(`${WEATHER_API_URL}${paramsString}.json`)
     .then(response => response.json())
     .then(processData)
     .then(data => {
       dispatch({
-        type: GET_WEATHER_SUCCESS,
+        type: SUCCESS,
         payload: {data}
       });
     })
     .catch(error => {
       dispatch({
-        type: GET_WEATHER_FAILURE,
+        type: FAILURE,
         payload: {error: error.message}
       });
     });

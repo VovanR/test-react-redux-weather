@@ -1,0 +1,14 @@
+.city-search-list {
+  padding: 0;
+  margin: 0;
+}
+
+.city-search-list__item {
+  list-style-type: none;
+  cursor: pointer;
+  padding: 5px 15px;
+}
+
+.city-search-list__item:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}

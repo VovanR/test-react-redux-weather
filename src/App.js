@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import './App.css';
-import {getCity} from './actions/city';
+import {getGeolocation} from './ducks/geolocation';
 import ApiCredits from './components/ApiCredits';
 import CitySearch from './components/CitySearch';
 import ErrorMessage from './components/ErrorMessage';
@@ -11,18 +11,33 @@ import Item from './components/Item';
 
 class App extends Component {
   componentWillMount(){
-    this.props.onGetCity();
+    this.props.onGetGeolocation();
   }
 
   render() {
     const {
-      city,
+      geolocation,
       weather,
       isLoading,
       errorMessage
     } = this.props;
 
-    if (city.error) {
+    if (weather.data) {
+      return (
+        <div className="app">
+          {weather.data.map((item, index) => (
+            <Item
+                key={index}
+                {...item}
+                />
+          ))}
+
+          <ApiCredits/>
+        </div>
+      );
+    }
+
+    if (geolocation.error) {
       return <CitySearch/>;
     }
 
@@ -34,39 +49,28 @@ class App extends Component {
       return <Loading/>;
     }
 
-    return (
-      <div className="app">
-				{weather.data.map((item, index) => (
-          <Item
-							key={index}
-							{...item}
-							/>
-				))}
-
-        <ApiCredits/>
-      </div>
-    );
+    return null;
   }
 }
 
 export default connect(
   state => {
     const {
-      city,
+      geolocation,
       weather
     } = state;
 
     return {
-      isLoading: city.isLoading || weather.isLoading,
-      errorMessage: city.error || weather.error,
-      city,
+      isLoading: geolocation.isLoading || weather.isLoading,
+      errorMessage: geolocation.error || weather.error,
+      geolocation,
       weather
     };
   },
 
   dispatch => ({
-    onGetCity: () => {
-      dispatch(getCity())
+    onGetGeolocation: () => {
+      dispatch(getGeolocation())
     }
   })
 )(App);
