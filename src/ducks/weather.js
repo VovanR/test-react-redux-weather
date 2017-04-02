@@ -1,3 +1,4 @@
+import {kmphToMps} from '../utils';
 import {API_ID, WEATHER_API_URL} from '../const';
 
 const REQUEST = 'weather/REQUEST';
@@ -54,13 +55,9 @@ function processData(data) {
       temp: parseInt(b.temp.metric, 10),
       windDegree: parseInt(b.wdir.degrees, 10),
       windDirection: b.wdir.dir,
-      windSpeed: kmphToMph(b.wspd.metric)
+      windSpeed: kmphToMps(b.wspd.metric)
     });
 
     return a;
   }, []);
-}
-
-function kmphToMph(kmph) {
-  return Math.round(parseInt(kmph, 10) * 1000 / 3600);
 }
