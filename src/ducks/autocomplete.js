@@ -1,3 +1,5 @@
+import fetchJsonp from 'fetch-jsonp';
+
 import {AUTOCOMPLETE_API_URL} from '../const';
 
 const REQUEST = 'autocomplete/REQUEST';
@@ -29,7 +31,9 @@ export default function autocomplete(state = initialState, action) {
 export const getAutocomplete = query => dispatch => {
   dispatch({type: REQUEST});
 
-  fetch(`${AUTOCOMPLETE_API_URL}aq?query=${query}`)
+  fetchJsonp(`${AUTOCOMPLETE_API_URL}aq?query=${query}`, {
+    jsonpCallback: 'cb'
+  })
     .then(response => response.json())
     .then(processResponse)
     .then(data => {
