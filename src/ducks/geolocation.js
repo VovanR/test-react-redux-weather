@@ -1,4 +1,4 @@
-import {setActiveCity} from './activeCity';
+import {setActivePosition} from './activePosition';
 
 const REQUEST = 'geolocation/REQUEST';
 const SUCCESS = 'geolocation/SUCCESS';
@@ -33,7 +33,7 @@ export const getGeolocation = () => dispatch => {
       payload: {position}
     });
 
-    dispatch(setActiveCity(position))
+    dispatch(setActivePosition(position))
   }
 
   function geoFailure(error) {

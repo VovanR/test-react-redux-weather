@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './index.css';
 import {connect} from 'react-redux';
-import {clearActiveCity} from '../../ducks/activeCity';
+import {clearActivePosition} from '../../ducks/activePosition';
 
 class ClearActivePosition extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class ClearActivePosition extends Component {
   }
 
   render() {
-    if (!this.props.activeCity) {
+    if (!this.props.activePosition) {
       return null;
     }
 
@@ -37,17 +37,17 @@ ClearActivePosition.defaultProps = {
 export default connect(
   state => {
     const {
-      activeCity
+      activePosition
     } = state;
 
     return {
-      activeCity
+      activePosition
     };
   },
 
   dispatch => ({
     onClickClearActivePosition: () => {
-      dispatch(clearActiveCity());
+      dispatch(clearActivePosition());
     }
   })
 )(ClearActivePosition);

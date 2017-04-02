@@ -12,8 +12,8 @@ import Item from './components/Item';
 
 class App extends Component {
   componentWillMount(){
-    if (this.props.activeCity) {
-      this.props.onGetWeather(this.props.activeCity);
+    if (this.props.activePosition) {
+      this.props.onGetWeather(this.props.activePosition);
       return;
     }
     this.props.onGetGeolocation();
@@ -21,14 +21,14 @@ class App extends Component {
 
   render() {
     const {
-      activeCity,
+      activePosition,
       geolocation,
       weather,
       isLoading,
       errorMessage
     } = this.props;
 
-    if (activeCity && weather.data) {
+    if (activePosition && weather.data) {
       return (
         <div className="app">
           {weather.data.map((item, index) => (
@@ -43,7 +43,7 @@ class App extends Component {
       );
     }
 
-    if (geolocation.error || (!geolocation.isLoading && !activeCity)) {
+    if (geolocation.error || (!geolocation.isLoading && !activePosition)) {
       return <CitySearch/>;
     }
 
@@ -62,13 +62,13 @@ class App extends Component {
 export default connect(
   state => {
     const {
-      activeCity,
+      activePosition,
       geolocation,
       weather
     } = state;
 
     return {
-      activeCity,
+      activePosition,
       isLoading: geolocation.isLoading || weather.isLoading,
       errorMessage: geolocation.error || weather.error,
       geolocation,

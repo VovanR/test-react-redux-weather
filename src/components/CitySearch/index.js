@@ -3,7 +3,7 @@ import './index.css';
 import {connect} from 'react-redux';
 import DebounceInput from 'react-debounce-input';
 import {setAutocompleteQuery} from '../../ducks/autocomplete';
-import {setActiveCity} from '../../ducks/activeCity';
+import {setActivePosition} from '../../ducks/activePosition';
 import CitySearchList from '../CitySearchList';
 
 class CitySearch extends Component {
@@ -18,7 +18,7 @@ class CitySearch extends Component {
   }
 
   handleClickCity(position) {
-    this.props.onChangeActiveCity(position);
+    this.props.onChangeActivePosition(position);
   }
 
   render() {
@@ -66,8 +66,8 @@ export default connect(
       dispatch(setAutocompleteQuery(query));
     },
 
-    onChangeActiveCity: position => {
-      dispatch(setActiveCity(position));
+    onChangeActivePosition: position => {
+      dispatch(setActivePosition(position));
     }
   })
 )(CitySearch);
