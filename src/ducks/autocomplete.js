@@ -8,7 +8,7 @@ const FAILURE = 'autocomplete/FAILURE';
 const QUERY = 'autocomplete/QUERY';
 
 const initialState = {
-  isLoading: true,
+  isLoading: false,
   query: '',
   data: []
 };

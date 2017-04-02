@@ -1,21 +1,23 @@
 import {getWeather} from './weather';
 
 const SET = 'activeCity/SET';
+const CLEAR = 'activeCity/CLEAR';
 
-const initialState = null;
-// const initialState = loadActiveCity();
+const initialState = loadActiveCity();
 
 export default function activeCity(state = initialState, action) {
   switch (action.type) {
     case SET:
       return action.payload;
+    case CLEAR:
+      return null;
     default:
       return state;
   }
 }
 
 export const setActiveCity = position => dispatch => {
-  window.localStorage.setItem('activeCity', JSON.stringify(position));
+  localStorage.setItem('activeCity', JSON.stringify(position));
 
   dispatch({
     type: SET,
@@ -25,14 +27,19 @@ export const setActiveCity = position => dispatch => {
   dispatch(getWeather(position));
 };
 
-// function loadActiveCity() {
-//   try {
-//     const serialized = localStorage.getItem('activeCity');
-//     if (serialized === null) {
-//       return null;
-//     }
-//     return JSON.parse(serialized);
-//   } catch (err) {
-//     return null;
-//   }
-// };
+export const clearActiveCity = () => dispatch => {
+  localStorage.removeItem('activeCity');
+  dispatch({type: CLEAR});
+};
+
+function loadActiveCity() {
+  try {
+    const serialized = localStorage.getItem('activeCity');
+    if (serialized === null) {
+      return null;
+    }
+    return JSON.parse(serialized);
+  } catch (err) {
+    return null;
+  }
+};

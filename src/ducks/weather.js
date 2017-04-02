@@ -5,7 +5,7 @@ const REQUEST = 'weather/REQUEST';
 const SUCCESS = 'weather/SUCCESS';
 const FAILURE = 'weather/FAILURE';
 
-const initialState = {isLoading: true};
+const initialState = {isLoading: false};
 
 export default function weather(state = initialState, action) {
   switch (action.type) {

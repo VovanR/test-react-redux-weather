@@ -4,7 +4,7 @@ const REQUEST = 'geolocation/REQUEST';
 const SUCCESS = 'geolocation/SUCCESS';
 const FAILURE = 'geolocation/FAILURE';
 
-const initialState = {isLoading: true};
+const initialState = {isLoading: false};
 
 export default function geolocation(state = initialState, action) {
   switch (action.type) {

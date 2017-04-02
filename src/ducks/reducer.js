@@ -10,6 +10,5 @@ export default combineReducers({
   geolocation,
   autocomplete,
   weather,
-
   activeCity
 });
