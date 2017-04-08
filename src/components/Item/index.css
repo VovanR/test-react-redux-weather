@@ -1,6 +1,13 @@
+:root {
+  --default-color: rgba(0, 0, 0, 0.4);
+  --time-color: rgba(0, 0, 0, 0.3);
+  --optional-color: rgba(0, 0, 0, 0);
+  --optional-hover-color: rgba(0, 0, 0, 0.17);
+}
+
 .item {
 	padding: 0 20px;
-	color: rgba(0, 0, 0, 0.4);
+	color: var(--default-color);
 	font-size: 3vh;
 	display: flex;
 	justify-content: space-between;
@@ -15,18 +22,18 @@
 	padding-right: 1em;
 	font-weight: normal;
 	text-align: right;
-	color: rgba(0, 0, 0, 0.3);
+	color: var(--time-color);
 }
 
 .item__time::after {
 	display: inline-block;
 	content: ':00';
-	transition: opacity ease 0.35s;
-	opacity: 0;
+	transition: color ease 0.35s;
+  color: var(--optional-color);
 }
 
 .item:hover .item__time::after {
-	opacity: 0.5;
+	color: var(--optional-hover-color);
 }
 
 .item__block {
@@ -48,13 +55,13 @@
 .item .wind__direction,
 .item .param__units {
 	display: inline-block;
-	transition: opacity ease 0.35s;
-	opacity: 0;
+	transition: color ease 0.35s;
+	color: var(--optional-color);
 }
 
 .item:hover .wind__direction,
 .item:hover .param__units {
-	opacity: 0.5;
+	color: var(--optional-hover-color);
 }
 
 .item_time_day {
