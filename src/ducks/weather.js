@@ -5,15 +5,19 @@ const REQUEST = 'weather/REQUEST';
 const SUCCESS = 'weather/SUCCESS';
 const FAILURE = 'weather/FAILURE';
 
-const initialState = {isLoading: false};
+const initialState = {
+  isLoading: false,
+  error: null,
+  data: []
+};
 
 export default function weather(state = initialState, action) {
   switch (action.type) {
     case REQUEST:
-      return {isLoading: true};
+      return {...state, isLoading: true};
     case SUCCESS:
     case FAILURE:
-      return action.payload;
+      return {...state, isLoading: false, ...action.payload};
     default:
       return state;
   }

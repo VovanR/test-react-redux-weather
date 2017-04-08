@@ -9,6 +9,7 @@ const QUERY = 'autocomplete/QUERY';
 
 const initialState = {
   isLoading: false,
+  error: null,
   query: '',
   data: []
 };
@@ -18,11 +19,10 @@ export default function autocomplete(state = initialState, action) {
     case REQUEST:
       return {...state, isLoading: true};
     case SUCCESS:
-      return {...state, data: action.payload};
     case FAILURE:
-      return {...state, error: action.payload};
+      return {...state, isLoading: false, ...action.payload};
     case QUERY:
-      return {...state, query: action.payload};
+      return {...state, ...action.payload};
     default:
       return state;
   }
@@ -39,7 +39,7 @@ export const getAutocomplete = query => dispatch => {
     .then(data => {
       dispatch({
         type: SUCCESS,
-        payload: data
+        payload: {data}
       });
     })
     .catch(error => {
@@ -64,7 +64,7 @@ function processResponse(data) {
 export const setAutocompleteQuery = query => dispatch => {
   dispatch({
     type: QUERY,
-    payload: query
+    payload: {query}
   });
 
   dispatch(getAutocomplete(query));
