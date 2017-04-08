@@ -1,5 +1,4 @@
 import React, {PureComponent, PropTypes} from 'react';
-
 import Param from '../Param';
 import './index.css';
 

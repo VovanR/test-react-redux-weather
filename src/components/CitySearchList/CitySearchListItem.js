@@ -36,7 +36,7 @@ CitySearchListItem.propTypes = {
   position: PropTypes.object.isRequired,
   onClick: PropTypes.func.isRequired
 };
-// CitySearchListItem.defaultProps = {
-// };
+CitySearchListItem.defaultProps = {
+};
 
 export default CitySearchListItem;

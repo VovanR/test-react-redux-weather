@@ -1,7 +1,6 @@
 import React, {Component, PropTypes} from 'react';
-
-import './index.css';
 import CitySearchListItem from './CitySearchListItem';
+import './index.css';
 
 class CitySearchList extends Component {
   constructor(props) {
@@ -35,7 +34,7 @@ CitySearchList.propTypes = {
   data: PropTypes.array.isRequired,
   onClickCity: PropTypes.func.isRequired
 };
-// CitySearchList.defaultProps = {
-// };
+CitySearchList.defaultProps = {
+};
 
 export default CitySearchList;

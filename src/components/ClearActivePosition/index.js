@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
-import './index.css';
 import {connect} from 'react-redux';
 import {clearActivePosition} from '../../ducks/activePosition';
+import './index.css';
 
 class ClearActivePosition extends Component {
   constructor(props) {
@@ -33,8 +33,8 @@ ClearActivePosition.propTypes = {
   activePosition: PropTypes.object,
   onClickClearActivePosition: PropTypes.func.isRequired
 };
-// ClearActivePosition.defaultProps = {
-// };
+ClearActivePosition.defaultProps = {
+};
 
 export default connect(
   state => {

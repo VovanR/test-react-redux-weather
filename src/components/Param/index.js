@@ -1,5 +1,4 @@
 import React, {PureComponent, PropTypes} from 'react';
-
 import './index.css';
 
 class Param extends PureComponent {
@@ -29,7 +28,7 @@ Param.propTypes = {
 	value: PropTypes.oneOfType([
 		PropTypes.string,
 		PropTypes.number
-	]),
+	]).isRequired,
 	units: PropTypes.string,
 	className: PropTypes.string
 };

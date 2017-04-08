@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import './index.css';
 import {connect} from 'react-redux';
 import DebounceInput from 'react-debounce-input';
 import {setAutocompleteQuery} from '../../ducks/autocomplete';
 import {setActivePosition} from '../../ducks/activePosition';
 import CitySearchList from '../CitySearchList';
 import Footer from '../Footer';
+import './index.css';
 
 class CitySearch extends Component {
   constructor(props) {
