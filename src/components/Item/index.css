@@ -56,3 +56,10 @@
 .item:hover .param__units {
 	opacity: 0.5;
 }
+
+.item_time_day {
+}
+
+.item_time_night {
+  background-color: rgba(40, 0, 60, 0.05);
+}

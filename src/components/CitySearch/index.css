@@ -13,4 +13,5 @@
 .city-search__input {
   font-size: 300%;
   font-family: monospace;
+  max-width: 90%;
 }

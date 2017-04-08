@@ -1,10 +1,11 @@
-import React, {Component, PropTypes} from 'react';
+import React, {PureComponent, PropTypes} from 'react';
 
 import Wind from '../Wind';
 import Param from '../Param';
+import hourToDayOrNight from 'hour-to-day-or-night';
 import './index.css';
 
-class Item extends Component {
+class Item extends PureComponent {
 	render() {
 		const {
       hour,
@@ -16,7 +17,7 @@ class Item extends Component {
     } = this.props;
 
 		return (
-			<div className="item">
+			<div className={`item item_time_${hourToDayOrNight(hour)}`}>
 				<span className="item__time">
 					{hour}
 				</span>

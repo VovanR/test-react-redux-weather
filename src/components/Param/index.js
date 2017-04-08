@@ -1,8 +1,8 @@
-import React, {Component, PropTypes} from 'react';
+import React, {PureComponent, PropTypes} from 'react';
 
 import './index.css';
 
-class Param extends Component {
+class Param extends PureComponent {
 	render() {
 		const {
       className,

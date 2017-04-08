@@ -1,9 +1,9 @@
-import React, {Component, PropTypes} from 'react';
+import React, {PureComponent, PropTypes} from 'react';
 
 import Param from '../Param';
 import './index.css';
 
-class Wind extends Component {
+class Wind extends PureComponent {
 	render() {
 		const {
       windDegree,

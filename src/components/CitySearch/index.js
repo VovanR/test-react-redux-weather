@@ -5,6 +5,7 @@ import DebounceInput from 'react-debounce-input';
 import {setAutocompleteQuery} from '../../ducks/autocomplete';
 import {setActivePosition} from '../../ducks/activePosition';
 import CitySearchList from '../CitySearchList';
+import Footer from '../Footer';
 
 class CitySearch extends Component {
   constructor(props) {
@@ -41,6 +42,8 @@ class CitySearch extends Component {
             onClickCity={this.handleClickCity}
             />
         ) : null}
+
+        <Footer/>
       </div>
     );
   }
