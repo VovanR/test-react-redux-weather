@@ -1,6 +1,6 @@
 import fetchJsonp from 'fetch-jsonp';
 
-import {AUTOCOMPLETE_API_URL} from '../const';
+import {AUTOCOMPLETE_API_URL} from '../constants/api';
 
 const REQUEST = 'autocomplete/REQUEST';
 const SUCCESS = 'autocomplete/SUCCESS';

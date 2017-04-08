@@ -1,6 +1,4 @@
 import React, {Component, PropTypes} from 'react';
-import {connect} from 'react-redux';
-import {clearActivePosition} from '../../ducks/activePosition';
 import './index.css';
 
 class ClearActivePosition extends Component {
@@ -10,14 +8,10 @@ class ClearActivePosition extends Component {
   }
 
   handleClick() {
-    this.props.onClickClearActivePosition();
+    this.props.onClick();
   }
 
   render() {
-    if (!this.props.activePosition) {
-      return null;
-    }
-
     return (
       <button
         className="clear-active-position"
@@ -30,26 +24,9 @@ class ClearActivePosition extends Component {
   }
 }
 ClearActivePosition.propTypes = {
-  activePosition: PropTypes.object,
-  onClickClearActivePosition: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired
 };
 ClearActivePosition.defaultProps = {
 };
 
-export default connect(
-  state => {
-    const {
-      activePosition
-    } = state;
-
-    return {
-      activePosition
-    };
-  },
-
-  dispatch => ({
-    onClickClearActivePosition: () => {
-      dispatch(clearActivePosition());
-    }
-  })
-)(ClearActivePosition);
+export default ClearActivePosition;

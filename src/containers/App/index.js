@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-
-import './App.css';
-import {getGeolocation} from './ducks/geolocation';
-import {getWeather} from './ducks/weather';
-import Footer from './components/Footer';
-import CitySearch from './components/CitySearch';
-import ErrorMessage from './components/ErrorMessage';
-import Loading from './components/Loading';
-import Item from './components/Item';
+import {getGeolocation} from '../../ducks/geolocation';
+import {getWeather} from '../../ducks/weather';
+import ErrorMessage from '../../components/ErrorMessage';
+import Loading from '../../components/Loading';
+import Item from '../../components/Item';
+import CitySearch from '../CitySearch';
+import Footer from '../Footer';
+import './index.css';
 
 class App extends Component {
   componentWillMount(){

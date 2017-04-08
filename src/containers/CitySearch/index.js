@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import DebounceInput from 'react-debounce-input';
 import {setAutocompleteQuery} from '../../ducks/autocomplete';
 import {setActivePosition} from '../../ducks/activePosition';
-import CitySearchList from '../CitySearchList';
+import CitySearchList from '../../components/CitySearchList';
 import Footer from '../Footer';
 import './index.css';
 

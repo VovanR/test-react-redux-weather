@@ -1,5 +1,5 @@
 import {kmphToMps} from '../utils';
-import {API_ID, WEATHER_API_URL} from '../const';
+import {API_ID, WEATHER_API_URL} from '../constants/api';
 
 const REQUEST = 'weather/REQUEST';
 const SUCCESS = 'weather/SUCCESS';
