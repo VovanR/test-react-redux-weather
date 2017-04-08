@@ -29,18 +29,30 @@
 	margin-top: -0.1em;
 }
 
-.wind__degree::after {
-	content: '';
-	background-image: url("data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiBoZWlnaHQ9IjQ4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSI0OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0wIDBoMjR2MjRIMFYweiIgZmlsbD0ibm9uZSIvPgogICAgPHBhdGggZD0iTTQgMTJsMS40MSAxLjQxTDExIDcuODNWMjBoMlY3LjgzbDUuNTggNS41OUwyMCAxMmwtOC04LTggOHoiLz4KPC9zdmc+");
-	background-size: 100%;
-	width: 100%;
-	height: 100%;
-	transform: rotate(180deg);
-	display: block;
-}
-
 .wind__direction {
 	display: inline-block;
 	width: 2.6em;
 	vertical-align: middle;
+}
+
+.wind_speed_low {
+}
+
+.wind_speed_low .wind__speed .param__value {
+  color: limegreen;
+}
+
+.wind_speed_low .wind__degree {
+  fill: green;
+}
+
+.wind_speed_high {
+}
+
+.wind_speed_high .wind__speed .param__value {
+  color: orangered;
+}
+
+.wind_speed_high .wind__degree {
+  fill: orangered;
 }

@@ -1,4 +1,4 @@
-import {kmphToMps} from './utils';
+import {kmphToMps, getWindSpeedName} from './utils';
 
 describe('kmphToMps', () => {
   it('should work with numbers', () => {
@@ -8,5 +8,15 @@ describe('kmphToMps', () => {
 
   it('should work with strings', () => {
     expect(kmphToMps('21.6')).toBe(6);
+  });
+});
+
+describe('getWindSpeedName', () => {
+  it('should work with numbers', () => {
+    expect(getWindSpeedName(0)).toBe('low');
+    expect(getWindSpeedName(5)).toBe('low');
+    expect(getWindSpeedName(6)).toBe('medium');
+    expect(getWindSpeedName(7)).toBe('medium');
+    expect(getWindSpeedName(8)).toBe('high');
   });
 });

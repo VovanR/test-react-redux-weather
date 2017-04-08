@@ -13,3 +13,19 @@
 export function kmphToMps(kmph) {
   return (0.5 + (kmph * 0.28)) << 0;
 }
+
+/**
+ * Returns wind speed name
+ *
+ * @example
+ * // returns 'low'
+ * getWindSpeedName(5);
+ *
+ * @param {Number} speed
+ * @returns {String}
+ */
+export function getWindSpeedName(speed) {
+  return speed > 7 ? 'high' :
+         speed > 5 ? 'medium' :
+                     'low';
+}
