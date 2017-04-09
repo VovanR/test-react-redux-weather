@@ -28,7 +28,7 @@ class App extends Component {
       errorMessage
     } = this.props;
 
-    if (activePosition && weather.data) {
+    if (activePosition && weather.data.length) {
       return (
         <div className="app">
           <Scrollbars
