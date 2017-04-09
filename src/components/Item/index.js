@@ -9,14 +9,18 @@ class Item extends PureComponent {
 		const {
       hour,
       iconUrl,
-      temp,
+      isComfort,
+      temperature,
       windDegree,
       windDirection,
       windSpeed
     } = this.props;
 
+    const timeClassName = ` item_time_${hourToDayOrNight(hour)}`;
+    const comfortClassName = isComfort ? ' item_comfort_true' : '';
+
 		return (
-			<div className={`item item_time_${hourToDayOrNight(hour)}`}>
+			<div className={`item${timeClassName}${comfortClassName}`}>
 				<span className="item__time">
 					{hour}
 				</span>
@@ -30,7 +34,7 @@ class Item extends PureComponent {
 
 					<Param
 						className="item__param"
-						value={temp > 0 ? `+${temp}` : temp}
+						value={temperature > 0 ? `+${temperature}` : temperature}
 						units={'℃'}
 						/>
 				</span>
@@ -49,10 +53,11 @@ class Item extends PureComponent {
 Item.propTypes = {
 	hour: PropTypes.number.isRequired,
 	iconUrl: PropTypes.string.isRequired,
-	temp: PropTypes.number.isRequired,
+  isComfort: PropTypes.bool.isRequired,
+	temperature: PropTypes.number.isRequired,
 	windDegree: PropTypes.number.isRequired,
 	windDirection: PropTypes.string.isRequired,
-	windSpeed: PropTypes.number.isRequired
+	windSpeed: PropTypes.number.isRequired,
 };
 Item.defaultProps = {
 };

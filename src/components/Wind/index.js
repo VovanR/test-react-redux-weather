@@ -1,5 +1,5 @@
 import React, {PureComponent, PropTypes} from 'react';
-import {getWindSpeedName} from '../../utils';
+import getWindSpeedName from '../../utils/getWindSpeedName';
 import Param from '../Param';
 import WindDegreeIcon from './WindDegreeIcon';
 import './index.css';

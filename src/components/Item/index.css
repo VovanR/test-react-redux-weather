@@ -1,8 +1,12 @@
-:root {
+.item {
   --default-color: rgba(0, 0, 0, 0.4);
   --time-color: rgba(0, 0, 0, 0.3);
   --optional-color: rgba(0, 0, 0, 0);
   --optional-hover-color: rgba(0, 0, 0, 0.17);
+  --comfort-color: limegreen;
+  --comfort-optional-hover-color: rgba(50, 205, 50, 0.5);
+  --time-day-background-color: transparent;
+  --time-night-background-color: rgba(40, 0, 60, 0.05);
 }
 
 .item {
@@ -65,8 +69,17 @@
 }
 
 .item_time_day {
+  background-color: var(--time-day-background-color);
 }
 
 .item_time_night {
-  background-color: rgba(40, 0, 60, 0.05);
+  background-color: var(--time-night-background-color);
+}
+
+.item_comfort_true .item__time {
+  color: var(--comfort-color);
+}
+
+.item_comfort_true:hover .item__time::after {
+  color: var(--comfort-optional-hover-color);
 }

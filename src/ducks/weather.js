@@ -1,4 +1,5 @@
-import {kmphToMps} from '../utils';
+import {isComfortWeather} from '../utils/weather';
+import kmphToMps from '../utils/kmphToMps';
 import {API_ID, WEATHER_API_URL} from '../constants/api';
 
 const REQUEST = 'weather/REQUEST';
@@ -53,13 +54,22 @@ export const getWeather = position => dispatch => {
 
 function processData(data) {
   return data.hourly_forecast.reduce((a, b) => {
+    const temperature = parseInt(b.temp.metric, 10);
+    const windSpeed = kmphToMps(b.wspd.metric);
+    const isComfort = isComfortWeather({
+      condition: b.condition,
+      temperature,
+      windSpeed
+    });
+
     a.push({
       hour: parseInt(b.FCTTIME.hour, 10),
       iconUrl: b.icon_url.replace(/^http:/, 'https:'),
-      temp: parseInt(b.temp.metric, 10),
       windDegree: parseInt(b.wdir.degrees, 10),
       windDirection: b.wdir.dir,
-      windSpeed: kmphToMps(b.wspd.metric)
+      windSpeed,
+      temperature,
+      isComfort
     });
 
     return a;
