@@ -12,10 +12,10 @@ class CitySearchList extends Component {
     this.props.onClickCity(position);
   }
 
-	render() {
-		const {data} = this.props;
+  render() {
+    const {data} = this.props;
 
-		return (
+    return (
       <ul className="city-search-list">
         {data.map(item => (
           <CitySearchListItem
@@ -27,8 +27,8 @@ class CitySearchList extends Component {
             />
         ))}
       </ul>
-		);
-	}
+    );
+  }
 }
 CitySearchList.propTypes = {
   data: PropTypes.array.isRequired,

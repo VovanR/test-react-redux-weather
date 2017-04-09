@@ -5,8 +5,8 @@ import hourToDayOrNight from 'hour-to-day-or-night';
 import './index.css';
 
 class Item extends PureComponent {
-	render() {
-		const {
+  render() {
+    const {
       hour,
       iconUrl,
       isComfort,
@@ -19,45 +19,45 @@ class Item extends PureComponent {
     const timeClassName = ` item_time_${hourToDayOrNight(hour)}`;
     const comfortClassName = isComfort ? ' item_comfort_true' : '';
 
-		return (
-			<div className={`item${timeClassName}${comfortClassName}`}>
-				<span className="item__time">
-					{hour}
-				</span>
+    return (
+      <div className={`item${timeClassName}${comfortClassName}`}>
+        <span className="item__time">
+          {hour}
+        </span>
 
-				<span className="item__block">
-					<img
-						className="item__icon"
-						src={iconUrl}
-						alt=""
-						/>
+        <span className="item__block">
+          <img
+            className="item__icon"
+            src={iconUrl}
+            alt=""
+            />
 
-					<Param
-						className="item__param"
-						value={temperature > 0 ? `+${temperature}` : temperature}
-						units={'℃'}
-						/>
-				</span>
+          <Param
+            className="item__param"
+            value={temperature > 0 ? `+${temperature}` : temperature}
+            units={'℃'}
+            />
+        </span>
 
-				<span className="item__block">
-					<Wind
+        <span className="item__block">
+          <Wind
             windDegree={windDegree}
             windDirection={windDirection}
             windSpeed={windSpeed}
             />
-				</span>
-			</div>
-		);
-	}
+        </span>
+      </div>
+    );
+  }
 }
 Item.propTypes = {
-	hour: PropTypes.number.isRequired,
-	iconUrl: PropTypes.string.isRequired,
+  hour: PropTypes.number.isRequired,
+  iconUrl: PropTypes.string.isRequired,
   isComfort: PropTypes.bool.isRequired,
-	temperature: PropTypes.number.isRequired,
-	windDegree: PropTypes.number.isRequired,
-	windDirection: PropTypes.string.isRequired,
-	windSpeed: PropTypes.number.isRequired,
+  temperature: PropTypes.number.isRequired,
+  windDegree: PropTypes.number.isRequired,
+  windDirection: PropTypes.string.isRequired,
+  windSpeed: PropTypes.number.isRequired,
 };
 Item.defaultProps = {
 };
