@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Scrollbars} from 'react-custom-scrollbars';
 import {getGeolocation} from '../../ducks/geolocation';
 import {getWeather} from '../../ducks/weather';
 import ErrorMessage from '../../components/ErrorMessage';
@@ -30,14 +31,18 @@ class App extends Component {
     if (activePosition && weather.data) {
       return (
         <div className="app">
-          {weather.data.map((item, index) => (
-            <Item
-                key={index}
-                {...item}
-                />
-          ))}
+          <Scrollbars
+            autoHide
+            >
+            {weather.data.map((item, index) => (
+              <Item
+                  key={index}
+                  {...item}
+                  />
+            ))}
 
-          <Footer/>
+            <Footer/>
+          </Scrollbars>
         </div>
       );
     }
