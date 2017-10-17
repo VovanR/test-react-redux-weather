@@ -1,9 +1,9 @@
 .clear-active-position {
-    background: none;
-    border: 1px solid rgba(0, 0, 0, 0.4);
-    border-radius: 5px;
-    height: 100%;
-    color: rgba(0, 0, 0, 0.75);
-    padding: 5px 10px;
-    box-shadow: none;
+  background: none;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  height: 100%;
+  color: rgba(0, 0, 0, 0.75);
+  padding: 5px 10px;
+  box-shadow: none;
 }

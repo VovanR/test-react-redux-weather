@@ -8,21 +8,19 @@ import Footer from '../Footer';
 import './index.css';
 
 class CitySearch extends Component {
-  constructor(props) {
-    super(props);
-    this.handleChangeQuery = this.handleChangeQuery.bind(this);
-    this.handleClickCity = this.handleClickCity.bind(this);
-  }
-
-  handleChangeQuery(e) {
+  handleChangeQuery = (e) => {
     this.props.onChangeCitySearch(e.target.value);
   }
 
-  handleClickCity(position) {
+  handleClickCity = (position) => {
     this.props.onChangeActivePosition(position);
   }
 
   render() {
+    const {
+      autocomplete
+    } = this.props
+
     return (
       <div className="city-search">
         <DebounceInput
@@ -31,17 +29,17 @@ class CitySearch extends Component {
           debounceTimeout={500}
           placeholder="City"
           type="search"
-          value={this.props.autocomplete.query}
+          value={autocomplete.query}
           onChange={this.handleChangeQuery}
           autoFocus
           />
 
-        {this.props.autocomplete && this.props.autocomplete.data ? (
+        {autocomplete && autocomplete.data && (
           <CitySearchList
-            data={this.props.autocomplete.data}
+            data={autocomplete.data}
             onClickCity={this.handleClickCity}
             />
-        ) : null}
+        )}
 
         <Footer/>
       </div>

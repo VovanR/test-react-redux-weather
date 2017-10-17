@@ -1,4 +1,5 @@
-import React, {PureComponent, PropTypes} from 'react';
+import React, {PureComponent} from 'react';
+import PropTypes from 'prop-types';
 import Wind from '../Wind';
 import Param from '../Param';
 import hourToDayOrNight from 'hour-to-day-or-night';

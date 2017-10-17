@@ -1,4 +1,5 @@
-import React, {PureComponent, PropTypes} from 'react';
+import React, {PureComponent} from 'react';
+import PropTypes from 'prop-types';
 import getWindSpeedName from '../../utils/getWindSpeedName';
 import Param from '../Param';
 import WindDegreeIcon from './WindDegreeIcon';
@@ -17,7 +18,7 @@ class Wind extends PureComponent {
         <Param
           className="wind__speed"
           value={windSpeed}
-          units={'m/s'}
+          units="m/s"
           />
 
         <span className="wind__wind">

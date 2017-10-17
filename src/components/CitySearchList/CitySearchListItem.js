@@ -1,17 +1,12 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 class CitySearchListItem extends Component {
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-    this.handleKeyUp = this.handleKeyUp.bind(this);
-  }
-
-  handleClick() {
+  handleClick = () => {
     this.props.onClick(this.props.position);
   }
 
-  handleKeyUp(e) {
+  handleKeyUp = (e) => {
     if (e.key === 'Enter') {
       this.props.onClick(this.props.position);
     }

@@ -1,4 +1,5 @@
-import React, {PureComponent, PropTypes} from 'react';
+import React, {PureComponent} from 'react';
+import PropTypes from 'prop-types';
 import './index.css';
 
 class Param extends PureComponent {
@@ -15,11 +16,11 @@ class Param extends PureComponent {
           {value}
         </span>
 
-        {units ? (
+        {units && (
           <span className="param__units">
             {units}
           </span>
-        ) : null}
+        )}
       </span>
     );
   }
