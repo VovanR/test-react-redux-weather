@@ -34,14 +34,16 @@ class App extends Component {
           <Scrollbars
             autoHide
             >
-            {weather.data.map((item, index) => (
-              <Item
-                  key={index}
-                  {...item}
-                  />
-            ))}
+            <div className="app__content">
+              {weather.data.map((item, index) => (
+                <Item
+                    key={index}
+                    {...item}
+                    />
+              ))}
 
-            <Footer/>
+              <Footer/>
+            </div>
           </Scrollbars>
         </div>
       );
