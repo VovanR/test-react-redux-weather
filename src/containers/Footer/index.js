@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {clearActivePosition} from '../../ducks/activePosition';
+import Copyright from '../../components/Copyright';
 import ApiCredits from '../../components/ApiCredits';
 import ClearActivePosition from '../../components/ClearActivePosition';
 import './index.css';
@@ -20,6 +21,10 @@ class Footer extends Component {
               onClick={this.handleClickClearActivePosition}
               />
           )}
+        </div>
+
+        <div className="footer__copyright">
+          <Copyright/>
         </div>
 
         <div className="footer__legal">

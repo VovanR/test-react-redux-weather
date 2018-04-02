@@ -1,0 +1,12 @@
+.copyright {
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.75);
+  text-decoration: none;
+}
+
+.copyright__license {
+}
+
+.copyright__author {
+  text-decoration: underline;
+}
