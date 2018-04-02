@@ -54,14 +54,27 @@
 
 .item_time_day {
   background-color: var(--time-day-background-color);
-  box-shadow: 100px 0 0 var(--time-day-background-color),
-              -100px 0 0 var(--time-day-background-color);
 }
 
 .item_time_night {
   background-color: var(--time-night-background-color);
-  box-shadow: 100px 0 0 var(--time-night-background-color),
-              -100px 0 0 var(--time-night-background-color);
+}
+
+.item_time_day + .item_time_night {
+  background-color: transparent;
+  background-image: linear-gradient(
+                      to bottom,
+                      var(--time-day-background-color) 0%,
+                      var(--time-night-background-color) 50%
+                    );
+}
+
+.item_time_night + .item_time_day {
+  background-image: linear-gradient(
+                      to bottom,
+                      var(--time-night-background-color) 0%,
+                      var(--time-day-background-color) 50%
+                    );
 }
 
 .item_comfort_true .item-time {
