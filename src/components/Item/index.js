@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import hourToDayOrNight from 'hour-to-day-or-night';
+import Container from '../Container';
 import ItemTime from '../ItemTime';
 import ItemWeather from '../ItemWeather';
 import ItemWind from '../ItemWind';
@@ -29,24 +30,28 @@ class Item extends PureComponent {
 
     return (
       <div className={className}>
-        <div className="item__block item__block_time">
-          <ItemTime hour={hour}/>
-        </div>
+        <Container>
+          <div className="item__content">
+            <div className="item__block item__block_time">
+              <ItemTime hour={hour}/>
+            </div>
 
-        <div className="item__block item__block_weather">
-          <ItemWeather
-            iconUrl={iconUrl}
-            temperature={temperature}
-            />
-        </div>
+            <div className="item__block item__block_weather">
+              <ItemWeather
+                iconUrl={iconUrl}
+                temperature={temperature}
+                />
+            </div>
 
-        <div className="item__block item__block_wind">
-          <ItemWind
-            windDegree={windDegree}
-            windDirection={windDirection}
-            windSpeed={windSpeed}
-            />
-        </div>
+            <div className="item__block item__block_wind">
+              <ItemWind
+                windDegree={windDegree}
+                windDirection={windDirection}
+                windSpeed={windSpeed}
+                />
+            </div>
+          </div>
+        </Container>
       </div>
     );
   }

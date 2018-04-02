@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {clearActivePosition} from '../../ducks/activePosition';
+import Container from '../../components/Container';
 import Copyright from '../../components/Copyright';
 import ApiCredits from '../../components/ApiCredits';
 import ClearActivePosition from '../../components/ClearActivePosition';
@@ -15,21 +16,25 @@ class Footer extends Component {
   render() {
     return (
       <footer className="footer">
-        <div className="footer__action">
-          {this.props.activePosition && (
-            <ClearActivePosition
-              onClick={this.handleClickClearActivePosition}
-              />
-          )}
-        </div>
+        <Container>
+          <div className="footer__content">
+            <div className="footer__action">
+              {this.props.activePosition && (
+                <ClearActivePosition
+                  onClick={this.handleClickClearActivePosition}
+                  />
+              )}
+            </div>
 
-        <div className="footer__copyright">
-          <Copyright/>
-        </div>
+            <div className="footer__copyright">
+              <Copyright/>
+            </div>
 
-        <div className="footer__legal">
-          <ApiCredits/>
-        </div>
+            <div className="footer__legal">
+              <ApiCredits/>
+            </div>
+          </div>
+        </Container>
       </footer>
     );
   }

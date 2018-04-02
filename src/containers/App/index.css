@@ -11,9 +11,5 @@
 }
 
 .app__content {
-  min-width: calc(100vh / 2);
-  max-width: calc(100vh / 1.4);
-  margin-left: auto;
-  margin-right: auto;
   height: 100%;
 }

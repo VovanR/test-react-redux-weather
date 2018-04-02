@@ -10,14 +10,17 @@
 }
 
 .item {
-  padding: 0 20px;
   color: var(--default-color);
   font-size: 3vh;
+  height: calc(100% / var(--items-per-screen));
+  min-height: 1em;
+}
+
+.item__content {
+  padding: 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: calc(100% / var(--items-per-screen));
-  min-height: 1em;
 }
 
 .item__block {
