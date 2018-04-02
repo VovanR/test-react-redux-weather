@@ -6,4 +6,5 @@
   color: rgba(0, 0, 0, 0.75);
   padding: 5px 10px;
   box-shadow: none;
+  cursor: pointer;
 }
