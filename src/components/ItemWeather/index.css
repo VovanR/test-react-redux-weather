@@ -1,0 +1,17 @@
+.item-weather {
+  white-space: nowrap;
+}
+
+.item-weather__icon {
+	vertical-align: middle;
+	width: 2.1em;
+	height: auto;
+}
+
+.item-weather__param {
+	margin-left: 7px;
+}
+
+.item-weather__temperature_positive::before {
+  content: '+';
+}

@@ -1,8 +1,10 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
-import Wind from '../Wind';
-import Param from '../Param';
+import classNames from 'classnames';
 import hourToDayOrNight from 'hour-to-day-or-night';
+import ItemTime from '../ItemTime';
+import ItemWeather from '../ItemWeather';
+import ItemWind from '../ItemWind';
 import './index.css';
 
 class Item extends PureComponent {
@@ -17,36 +19,34 @@ class Item extends PureComponent {
       windSpeed
     } = this.props;
 
-    const timeClassName = ` item_time_${hourToDayOrNight(hour)}`;
-    const comfortClassName = isComfort ? ' item_comfort_true' : '';
+    const className = classNames(
+      'item',
+      'item_time_' + hourToDayOrNight(hour),
+      {
+        item_comfort_true: isComfort
+      }
+    );
 
     return (
-      <div className={`item${timeClassName}${comfortClassName}`}>
-        <span className="item__time">
-          {hour}
-        </span>
+      <div className={className}>
+        <div className="item__block item__block_time">
+          <ItemTime hour={hour}/>
+        </div>
 
-        <span className="item__block">
-          <img
-            className="item__icon"
-            src={iconUrl}
-            alt=""
+        <div className="item__block item__block_weather">
+          <ItemWeather
+            iconUrl={iconUrl}
+            temperature={temperature}
             />
+        </div>
 
-          <Param
-            className="item__param"
-            value={temperature > 0 ? `+${temperature}` : temperature}
-            units={'℃'}
-            />
-        </span>
-
-        <span className="item__block">
-          <Wind
+        <div className="item__block item__block_wind">
+          <ItemWind
             windDegree={windDegree}
             windDirection={windDirection}
             windSpeed={windSpeed}
             />
-        </span>
+        </div>
       </div>
     );
   }

@@ -1,0 +1,32 @@
+.item-time {
+  --time-color: rgba(0, 0, 0, 0.3);
+}
+
+.item-time {
+	color: var(--time-color);
+}
+
+.item-time::after {
+	display: inline-block;
+	content: ':00';
+	transition: color ease 0.35s;
+  color: var(--optional-color);
+}
+
+.item-time_one-sigh::before {
+  display: inline-block;
+  content: '0';
+  visibility: hidden;
+}
+
+.item:hover .item-time::after {
+	color: var(--optional-hover-color);
+}
+
+.item_comfort_true .item-time {
+  color: var(--comfort-color);
+}
+
+.item_comfort_true:hover .item-time::after {
+  color: var(--comfort-optional-hover-color);
+}

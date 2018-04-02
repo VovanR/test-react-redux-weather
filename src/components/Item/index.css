@@ -1,85 +1,73 @@
 .item {
   --default-color: rgba(0, 0, 0, 0.4);
-  --time-color: rgba(0, 0, 0, 0.3);
   --optional-color: rgba(0, 0, 0, 0);
   --optional-hover-color: rgba(0, 0, 0, 0.17);
   --comfort-color: limegreen;
   --comfort-optional-hover-color: rgba(50, 205, 50, 0.5);
   --time-day-background-color: transparent;
   --time-night-background-color: rgba(40, 0, 60, 0.05);
+  --items-per-screen: 12;
 }
 
 .item {
-	padding: 0 20px;
-	color: var(--default-color);
-	font-size: 3vh;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	height: calc(100% / 12);
-	min-height: 1em;
-}
-
-.item__time {
-	display: inline-block;
-	width: 4em;
-	padding-right: 1em;
-	font-weight: normal;
-	text-align: right;
-	color: var(--time-color);
-}
-
-.item__time::after {
-	display: inline-block;
-	content: ':00';
-	transition: color ease 0.35s;
-  color: var(--optional-color);
-}
-
-.item:hover .item__time::after {
-	color: var(--optional-hover-color);
+  padding: 0 20px;
+  color: var(--default-color);
+  font-size: 3vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: calc(100% / var(--items-per-screen));
+  min-height: 1em;
 }
 
 .item__block {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
 }
 
-.item__icon {
-	vertical-align: middle;
-	width: 2.1em;
-	height: auto;
+.item__block_time {
+  padding-left: 10px;
 }
 
-.item__wind {
+.item__block_weather {
 }
 
-.item__param {
-	margin-left: 0.25em;
+.item__block_wind {
+  display: flex;
+  justify-content: flex-end;
 }
 
+.item .item-weather__temperature_positive::before,
 .item .wind__direction,
 .item .param__units {
-	display: inline-block;
-	transition: color ease 0.35s;
-	color: var(--optional-color);
+  display: inline-block;
+  transition: color ease 0.35s;
+  color: var(--optional-color);
 }
 
+.item:hover .item-weather__temperature_positive::before,
 .item:hover .wind__direction,
 .item:hover .param__units {
-	color: var(--optional-hover-color);
+  color: var(--optional-hover-color);
 }
 
 .item_time_day {
   background-color: var(--time-day-background-color);
+  box-shadow: 100px 0 0 var(--time-day-background-color),
+              -100px 0 0 var(--time-day-background-color);
 }
 
 .item_time_night {
   background-color: var(--time-night-background-color);
+  box-shadow: 100px 0 0 var(--time-night-background-color),
+              -100px 0 0 var(--time-night-background-color);
 }
 
-.item_comfort_true .item__time {
+.item_comfort_true .item-time {
   color: var(--comfort-color);
 }
 
-.item_comfort_true:hover .item__time::after {
+.item_comfort_true:hover .item-time::after {
   color: var(--comfort-optional-hover-color);
 }
