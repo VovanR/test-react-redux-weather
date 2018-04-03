@@ -3,13 +3,13 @@
 }
 
 .item-time {
-	color: var(--time-color);
+  color: var(--time-color);
 }
 
 .item-time::after {
-	display: inline-block;
-	content: ':00';
-	transition: color ease 0.35s;
+  display: inline-block;
+  content: ':00';
+  transition: color ease 0.35s;
   color: var(--optional-color);
 }
 
@@ -20,7 +20,7 @@
 }
 
 .item:hover .item-time::after {
-	color: var(--optional-hover-color);
+  color: var(--optional-hover-color);
 }
 
 .item_comfort_true .item-time {

@@ -8,40 +8,40 @@
 }
 
 .wind {
-	display: inline-block;
-	vertical-align: middle;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .wind__speed {
 }
 
 .wind__speed .param__units {
-	vertical-align: -0.5em;
-	font-size: 0.75em;
+  vertical-align: -0.5em;
+  font-size: 0.75em;
 }
 
 .wind__wind {
-	display: inline-block;
-	vertical-align: 0.5em;
-	margin-left: -1.9em;
-	font-size: 0.75em;
+  display: inline-block;
+  vertical-align: 0.5em;
+  margin-left: -1.9em;
+  font-size: 0.75em;
 }
 
 .wind__degree {
-	display: inline-block;
-	font-size: 1.5em;
-	width: 1em;
-	height: 1em;
-	overflow: hidden;
-	vertical-align: middle;
-	margin-top: -0.1em;
+  display: inline-block;
+  font-size: 1.5em;
+  width: 1em;
+  height: 1em;
+  overflow: hidden;
+  vertical-align: middle;
+  margin-top: -0.1em;
   fill: var(--wind-speed-degree-color);
 }
 
 .wind__direction {
-	display: inline-block;
-	width: 2.6em;
-	vertical-align: middle;
+  display: inline-block;
+  width: 2.6em;
+  vertical-align: middle;
 }
 
 .wind_speed_low {
