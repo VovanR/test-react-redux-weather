@@ -1,4 +1,13 @@
 .wind {
+  --wind-speed-color: var(--default-color);
+  --wind-speed-degree-color: rgba(38, 50, 56, 0.45);
+  --wind-speed-low-color: #4caf50;
+  --wind-speed-low-degree-color: #4caf50;
+  --wind-speed-high-color: #ff5722;
+  --wind-speed-high-degree-color: #ff5722;
+}
+
+.wind {
 	display: inline-block;
 	vertical-align: middle;
 }
@@ -20,13 +29,13 @@
 
 .wind__degree {
 	display: inline-block;
-	opacity: 0.25;
 	font-size: 1.5em;
 	width: 1em;
 	height: 1em;
 	overflow: hidden;
 	vertical-align: middle;
 	margin-top: -0.1em;
+  fill: var(--wind-speed-degree-color);
 }
 
 .wind__direction {
@@ -39,20 +48,20 @@
 }
 
 .wind_speed_low .wind__speed .param__value {
-  color: limegreen;
+  color: var(--wind-speed-low-color);
 }
 
 .wind_speed_low .wind__degree {
-  fill: green;
+  fill: var(--wind-speed-low-degree-color);
 }
 
 .wind_speed_high {
 }
 
 .wind_speed_high .wind__speed .param__value {
-  color: orangered;
+  color: var(--wind-speed-high-color);
 }
 
 .wind_speed_high .wind__degree {
-  fill: orangered;
+  fill: var(--wind-speed-high-degree-color);
 }

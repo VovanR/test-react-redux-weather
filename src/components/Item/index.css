@@ -1,9 +1,9 @@
 .item {
-  --default-color: rgba(0, 0, 0, 0.4);
-  --optional-color: rgba(0, 0, 0, 0);
-  --optional-hover-color: rgba(0, 0, 0, 0.17);
-  --comfort-color: limegreen;
-  --comfort-optional-hover-color: rgba(50, 205, 50, 0.5);
+  --default-color: rgba(38, 50, 56, 0.6);
+  --optional-color: rgba(96, 125, 139, 0);
+  --optional-hover-color: rgba(96, 125, 139, 0.45);
+  --comfort-color: #4caf50;
+  --comfort-optional-hover-color: rgba(76, 175, 80, 0.5);
   --time-day-background-color: transparent;
   --time-night-background-color: rgba(40, 0, 60, 0.05);
   --items-per-screen: 12;
