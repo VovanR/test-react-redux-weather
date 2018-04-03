@@ -18,7 +18,7 @@ class Footer extends Component {
       <footer className="footer">
         <Container>
           <div className="footer__content">
-            <div className="footer__action">
+            <div className="footer__block footer__block_action">
               {this.props.activePosition && (
                 <ClearActivePosition
                   onClick={this.handleClickClearActivePosition}
@@ -26,11 +26,11 @@ class Footer extends Component {
               )}
             </div>
 
-            <div className="footer__copyright">
+            <div className="footer__block footer__block_copyright">
               <Copyright/>
             </div>
 
-            <div className="footer__legal">
+            <div className="footer__block footer__block_legal">
               <ApiCredits/>
             </div>
           </div>
