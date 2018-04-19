@@ -14,7 +14,7 @@ class ClearActivePosition extends Component {
         onClick={this.handleClick}
         type="button"
         >
-        {'Clear active position'}
+        Clear position
       </button>
     );
   }

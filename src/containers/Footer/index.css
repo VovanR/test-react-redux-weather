@@ -5,16 +5,16 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 15px;
+  padding: 30px 15px 25px;
 }
 
 .footer__block {
-  flex: 1 0 0;
   padding-right: 5px;
   padding-left: 5px;
 }
 
 .footer__block_action {
+  margin-right: 10px;
 }
 
 .footer__block_copyright {

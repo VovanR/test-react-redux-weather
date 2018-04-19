@@ -10,7 +10,7 @@ const Copyright = () => (
     >
     <span className="copyright__license">MIT ©</span>
     {' '}
-    <span className="copyright__author">Vladimir Rodkin</span>
+    <span className="copyright__author">Vladimir Rodkin</span>
   </a>
 );
 
