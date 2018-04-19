@@ -53,25 +53,27 @@ export const getWeather = position => dispatch => {
 };
 
 function processData(data) {
-  return data.hourly_forecast.reduce((a, b) => {
-    const temperature = parseInt(b.temp.metric, 10);
-    const windSpeed = kmphToMps(b.wspd.metric);
+  return data.hourly_forecast.reduce((acc, current) => {
+    const temperature = parseInt(current.temp.metric, 10);
+    const windSpeed = kmphToMps(current.wspd.metric);
     const isComfort = isComfortWeather({
-      condition: b.condition,
+      condition: current.condition,
       temperature,
       windSpeed
     });
 
-    a.push({
-      hour: parseInt(b.FCTTIME.hour, 10),
-      iconUrl: b.icon_url.replace(/^http:/, 'https:'),
-      windDegree: parseInt(b.wdir.degrees, 10),
-      windDirection: b.wdir.dir,
+    acc.push({
+      weekday: current.FCTTIME.weekday_name,
+      day: parseInt(current.FCTTIME.mday, 10),
+      hour: parseInt(current.FCTTIME.hour, 10),
+      iconUrl: current.icon_url.replace(/^http:/, 'https:'),
+      windDegree: parseInt(current.wdir.degrees, 10),
+      windDirection: current.wdir.dir,
       windSpeed,
       temperature,
       isComfort
     });
 
-    return a;
+    return acc;
   }, []);
 }

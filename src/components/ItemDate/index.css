@@ -1,0 +1,26 @@
+/* TODO: variables from .item */
+.item-date {
+  --item-date-background-color: rgba(40, 0, 60, 0.05);
+  --item-date-day-color: rgba(38, 50, 56, 0.6);
+  --item-date-weekday-color: rgba(96, 125, 139, 0.45);
+  --items-per-screen: 12;
+}
+
+.item-date {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 3vh;
+  height: calc(100% / var(--items-per-screen));
+  background-color: var(--item-date-background-color);
+}
+
+.item-date__day {
+  color: var(--item-date-day-color);
+}
+
+.item-date__weekday {
+  color: var(--item-date-weekday-color);
+  margin-right: 10px;
+}

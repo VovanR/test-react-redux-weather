@@ -5,6 +5,7 @@ import {getGeolocation} from '../../ducks/geolocation';
 import {getWeather} from '../../ducks/weather';
 import ErrorMessage from '../../components/ErrorMessage';
 import Loading from '../../components/Loading';
+import ItemDate from '../../components/ItemDate';
 import Item from '../../components/Item';
 import CitySearch from '../CitySearch';
 import Footer from '../Footer';
@@ -29,18 +30,40 @@ class App extends Component {
     } = this.props;
 
     if (activePosition && weather.data.length) {
+      let currentDate = null
+
       return (
         <div className="app">
-          <Scrollbars
-            autoHide
-            >
+          <Scrollbars autoHide>
             <div className="app__content">
-              {weather.data.map((item, index) => (
-                <Item
-                    key={index}
-                    {...item}
-                    />
-              ))}
+              {weather.data.reduce((acc, current, index) => {
+                const {
+                  day,
+                  weekday
+                } = current
+
+                if (currentDate !== day) {
+                  currentDate = day
+                  const key = currentDate + weekday
+
+                  acc.push(
+                    <ItemDate
+                      key={key}
+                      day={day}
+                      weekday={weekday}
+                      />
+                  )
+                }
+
+                acc.push(
+                  <Item
+                      key={index}
+                      {...current}
+                      />
+                );
+
+                return acc;
+              }, [])}
 
               <Footer/>
             </div>
