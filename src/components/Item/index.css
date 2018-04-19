@@ -65,7 +65,7 @@
 }
 
 .item_time_day + .item_time_night {
-  background-color: transparent;
+  background-color: var(--time-day-background-color);
   background-image: linear-gradient(
                       to bottom,
                       var(--time-day-background-color) 0%,
@@ -73,7 +73,9 @@
                     );
 }
 
+.item_time_night:last-of-type,
 .item_time_night + .item_time_day {
+  background-color: var(--time-day-background-color);
   background-image: linear-gradient(
                       to bottom,
                       var(--time-night-background-color) 0%,
