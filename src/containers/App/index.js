@@ -12,6 +12,9 @@ import CitySearch from '../CitySearch';
 import Footer from '../Footer';
 import './index.css';
 
+// Show first date when there are more than 4 hours left until the new day
+const FIRST_DATE_HOURS_LEFT_LIMIT = 4
+
 class App extends Component {
   componentWillMount(){
     if (this.props.activePosition) {
@@ -46,7 +49,10 @@ class App extends Component {
 
                 const partOfDay = hourToDayOrNight(hour);
 
-                if (currentDate !== day) {
+                const showFirstDate = currentDate === null && hour < (24 - FIRST_DATE_HOURS_LEFT_LIMIT)
+                const showDate = currentDate !== null && currentDate !== day
+
+                if (showDate || showFirstDate) {
                   currentDate = day;
                   const key = currentDate + weekday;
 
