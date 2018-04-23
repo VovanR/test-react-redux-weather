@@ -1,14 +1,13 @@
-import React, {PureComponent} from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import hourToDayOrNight from 'hour-to-day-or-night';
 import Container from '../Container';
 import ItemTime from '../ItemTime';
 import ItemWeather from '../ItemWeather';
 import ItemWind from '../ItemWind';
 import './index.css';
 
-class Item extends PureComponent {
+class Item extends Component {
   render() {
     const {
       hour,
@@ -17,12 +16,13 @@ class Item extends PureComponent {
       temperature,
       windDegree,
       windDirection,
-      windSpeed
+      windSpeed,
+      variant
     } = this.props;
 
     const className = classNames(
       'item',
-      'item_time_' + hourToDayOrNight(hour),
+      `item_time_${variant}`,
       {
         item_comfort_true: isComfort
       }
@@ -64,8 +64,10 @@ Item.propTypes = {
   windDegree: PropTypes.number.isRequired,
   windDirection: PropTypes.string.isRequired,
   windSpeed: PropTypes.number.isRequired,
-};
-Item.defaultProps = {
+  variant: PropTypes.oneOf([
+    'day',
+    'night'
+  ]).isRequired
 };
 
 export default Item;

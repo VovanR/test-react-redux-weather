@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Scrollbars} from 'react-custom-scrollbars';
+import hourToDayOrNight from 'hour-to-day-or-night';
 import {getGeolocation} from '../../ducks/geolocation';
 import {getWeather} from '../../ducks/weather';
 import ErrorMessage from '../../components/ErrorMessage';
@@ -38,26 +39,31 @@ class App extends Component {
             <div className="app__content">
               {weather.data.reduce((acc, current, index) => {
                 const {
+                  hour,
                   day,
                   weekday
-                } = current
+                } = current;
+
+                const partOfDay = hourToDayOrNight(hour);
 
                 if (currentDate !== day) {
-                  currentDate = day
-                  const key = currentDate + weekday
+                  currentDate = day;
+                  const key = currentDate + weekday;
 
                   acc.push(
                     <ItemDate
                       key={key}
                       day={day}
                       weekday={weekday}
+                      variant={partOfDay}
                       />
-                  )
+                  );
                 }
 
                 acc.push(
                   <Item
                       key={index}
+                      variant={partOfDay}
                       {...current}
                       />
                 );

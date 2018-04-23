@@ -1,7 +1,9 @@
 /* TODO: variables from .item */
 .item-date {
-  --item-date-background-color: rgba(40, 0, 60, 0.05);
-  --item-date-day-color: rgba(38, 50, 56, 0.6);
+  --time-day-background-color: transparent;
+  --time-night-background-color: rgba(40, 0, 60, 0.05);
+  --item-date-day-color: rgba(96, 125, 139, 0);
+  --item-date-day-hover-color: rgba(96, 125, 139, 0.45);
   --item-date-weekday-color: rgba(96, 125, 139, 0.45);
   --items-per-screen: 12;
 }
@@ -13,14 +15,31 @@
   text-align: center;
   font-size: 3vh;
   height: calc(100% / var(--items-per-screen));
-  background-color: var(--item-date-background-color);
+}
+
+.item-date:hover .item-date__day {
+  color: var(--item-date-day-hover-color);
+}
+
+.item-date_time_day {
+  background-color: var(--time-day-background-color);
+}
+
+.item-date_time_night {
+  background-color: var(--time-night-background-color);
 }
 
 .item-date__day {
+  --width: 1.25em;
+  --margin-left: 0.325em;
+  text-align: left;
   color: var(--item-date-day-color);
+  transition: color ease 0.35s;
+  width: var(--width);
+  margin-right: calc(-1 * (var(--width) + var(--margin-left)));
+  margin-left: var(--margin-left);
 }
 
 .item-date__weekday {
   color: var(--item-date-weekday-color);
-  margin-right: 10px;
 }
