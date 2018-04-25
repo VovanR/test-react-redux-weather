@@ -7,7 +7,12 @@ const ApiCredits = () => (
       weather API by
     </span>
 
-    <span className="api-credits__logo"/>
+    <img
+      className="api-credits__logo"
+      src="images/weather-underground-logo.png"
+      srcSet="images/weather-underground-logo@x2.png 2x, images/weather-underground-logo@x3.png 3x"
+      alt="Weather Underground logo"
+      />
   </span>
 );
 
