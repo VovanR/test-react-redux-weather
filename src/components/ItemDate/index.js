@@ -8,15 +8,21 @@ class ItemDate extends Component {
 
     return (
       <div className={className}>
-        <span className="item-date__weekday">
-          {this.props.weekday}
-        </span>
+        <div className="container">
+          <div className="item-date__content">
+            <div className="item-date__date">
+              <span className="item-date__weekday">
+                {this.props.weekday}
+              </span>
 
-        {' '}
+              {' '}
 
-        <span className="item-date__day">
-          {this.props.day}
-        </span>
+              <span className="item-date__day">
+                {this.props.day}
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

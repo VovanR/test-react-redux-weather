@@ -9,12 +9,21 @@
 }
 
 .item-date {
+  font-size: 3vh;
+  height: calc(100% / var(--items-per-screen));
+}
+
+.item-date__content {
+  height: 100%;
+  padding: 0 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  font-size: 3vh;
-  height: calc(100% / var(--items-per-screen));
+}
+
+.item-date__date {
+  flex: 1 0 auto;
+  padding-left: calc(33.33% + 5px);
 }
 
 .item-date:hover .item-date__day {
