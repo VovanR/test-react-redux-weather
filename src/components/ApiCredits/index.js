@@ -2,7 +2,12 @@ import React from 'react';
 import './index.css';
 
 const ApiCredits = () => (
-  <span className="api-credits">
+  <a
+    className="api-credits"
+    href="https://www.wunderground.com/?apiref=3a3c817e9706260c"
+    target="_blank"
+    rel="noopener noreferrer"
+    >
     <span className="api-credits__text">
       weather API by
     </span>
@@ -13,7 +18,7 @@ const ApiCredits = () => (
       srcSet="images/weather-underground-logo@x2.png 2x, images/weather-underground-logo@x3.png 3x"
       alt="Weather Underground logo"
       />
-  </span>
+  </a>
 );
 
 export default ApiCredits;

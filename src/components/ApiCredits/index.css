@@ -1,6 +1,7 @@
 .api-credits {
   display: block;
   text-align: center;
+  text-decoration: none;
 }
 
 .api-credits__text {
