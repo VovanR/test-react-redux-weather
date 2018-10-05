@@ -45,6 +45,10 @@
       justify-content: center;
       flex-direction: column;
     }
+    .loading_state_initialization {
+      opacity: 0;
+      animation: 0.25s cubic-bezier(0.4, 0, 0.2, 1) 0.75s forwards loadingFadeIn;
+    }
 
     .loading__icon {
       width: var(--icon-size);
@@ -75,6 +79,10 @@
       50% { content: '..'; }
       75% { content: '...';}
     }
+    @keyframes loadingFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
     </style>
   </head>
   <body>
@@ -85,7 +93,7 @@
     </svg>
 
     <div id="root">
-      <div class="loading">
+      <div class="loading loading_state_initialization">
         <img class="loading__icon" src="apple-touch-icon.png" />
         <span class="loading__status">initialization</span>
       </div>
