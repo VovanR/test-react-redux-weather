@@ -2,7 +2,9 @@ import React from 'react';
 
 const Loading = () => (
   <div className="loading">
-    <span className="loading__text loading__text_elipsis">
+    <img className="loading__icon" src="apple-touch-icon.png"/>
+
+    <span className="loading__status">
       {'loading'}
     </span>
   </div>
