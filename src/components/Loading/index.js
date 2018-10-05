@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Loading = () => (
+const Loading = ({status}) => (
   <div className="loading">
     <img className="loading__icon" src="apple-touch-icon.png"/>
 
     <span className="loading__status">
-      {'loading'}
+      {status}
     </span>
   </div>
 );

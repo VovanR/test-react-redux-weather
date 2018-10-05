@@ -93,7 +93,7 @@ class App extends Component {
     }
 
     if (isLoading) {
-      return <Loading/>;
+      return <Loading status={geolocation.isLoading ? 'waiting' : 'loading'}/>;
     }
 
     return null;
