@@ -1,14 +1,14 @@
 /**
  * Convert km/h to m/s
+ * {@link https://jsfiddle.net/VovanR/9L6np6bv/}
+ * @version 1.0.1
  *
- * @see {@link https://jsfiddle.net/VovanR/9L6np6bv/}
+ * @param {number|string} kmph
+ * @returns {number}
  *
  * @example
- * // returns 1
  * kmphToMps(5);
- *
- * @param {Number|String} kmph
- * @returns {Number}
+ * //=> 1
  */
 export default function kmphToMps(kmph) {
   return (0.5 + (kmph * 0.28)) << 0;

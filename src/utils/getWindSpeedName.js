@@ -1,12 +1,12 @@
 /**
  * Returns wind speed name
  *
- * @example
- * // returns 'low'
- * getWindSpeedName(5);
+ * @param {number} speed
+ * @returns {string}
  *
- * @param {Number} speed
- * @returns {String}
+ * @example
+ * getWindSpeedName(5);
+ * //=> 'low'
  */
 export default function getWindSpeedName(speed) {
   return speed > 7 ? 'high' :
