@@ -17,16 +17,18 @@ class ItemWind extends PureComponent {
           windDegree={windDegree}
           windDirection={windDirection}
           windSpeed={windSpeed}
-          />
+        />
       </span>
     );
   }
 }
+
 ItemWind.propTypes = {
   windDegree: PropTypes.number.isRequired,
   windDirection: PropTypes.string.isRequired,
   windSpeed: PropTypes.number.isRequired,
 };
+
 ItemWind.defaultProps = {
 };
 

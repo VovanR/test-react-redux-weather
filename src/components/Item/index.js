@@ -40,7 +40,7 @@ class Item extends Component {
               <ItemWeather
                 iconUrl={iconUrl}
                 temperature={temperature}
-                />
+              />
             </div>
 
             <div className="item__block item__block_wind">
@@ -48,7 +48,7 @@ class Item extends Component {
                 windDegree={windDegree}
                 windDirection={windDirection}
                 windSpeed={windSpeed}
-                />
+              />
             </div>
           </div>
         </Container>
@@ -56,6 +56,7 @@ class Item extends Component {
     );
   }
 }
+
 Item.propTypes = {
   hour: PropTypes.number.isRequired,
   iconUrl: PropTypes.string.isRequired,

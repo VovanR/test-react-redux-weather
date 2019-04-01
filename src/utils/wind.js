@@ -1,4 +1,4 @@
-const maxComfortWindSpeed = 5;
+const MAX_COMFORT_WIND_SPEED = 5;
 
 /**
  * isComfortWindSpeed
@@ -7,5 +7,5 @@ const maxComfortWindSpeed = 5;
  * @returns {boolean}
  */
 export function isComfortWindSpeed(windSpeed) {
-  return windSpeed <= maxComfortWindSpeed;
+  return windSpeed <= MAX_COMFORT_WIND_SPEED;
 }

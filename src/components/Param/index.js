@@ -1,5 +1,6 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import './index.css';
 
 class Param extends PureComponent {
@@ -11,7 +12,7 @@ class Param extends PureComponent {
     } = this.props;
 
     return (
-      <span className={`param${className ? ' ' + className : ''}`}>
+      <span className={classNames('param', className)}>
         <span className="param__value">
           {value}
         </span>

@@ -12,13 +12,7 @@ import {isComfortWindSpeed} from './wind';
  * @returns {boolean}
  */
 export function isComfortWeather(weather) {
-  if (
-    !isComfortCondition(weather.condition) ||
-    !isComfortTemperature(weather.temperature) ||
-    !isComfortWindSpeed(weather.windSpeed)
-  ) {
-    return false;
-  }
-
-  return true;
+  return isComfortCondition(weather.condition) &&
+         isComfortWindSpeed(weather.windSpeed) &&
+         isComfortTemperature(weather.temperature)
 }

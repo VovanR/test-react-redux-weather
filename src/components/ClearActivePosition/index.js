@@ -5,23 +5,25 @@ import './index.css';
 class ClearActivePosition extends Component {
   handleClick = () => {
     this.props.onClick();
-  }
+  };
 
   render() {
     return (
       <button
         className="clear-active-position"
-        onClick={this.handleClick}
         type="button"
-        >
+        onClick={this.handleClick}
+      >
         Clear position
       </button>
     );
   }
 }
+
 ClearActivePosition.propTypes = {
   onClick: PropTypes.func.isRequired
 };
+
 ClearActivePosition.defaultProps = {
 };
 

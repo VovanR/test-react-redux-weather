@@ -22,21 +22,23 @@ class ItemWeather extends PureComponent {
           className="item-weather__icon"
           src={iconUrl}
           alt=""
-          />
+        />
 
         <Param
           className={temperatureClassName}
           value={formattedTemperature}
           units="℃"
-          />
+        />
       </span>
     );
   }
 }
+
 ItemWeather.propTypes = {
   iconUrl: PropTypes.string.isRequired,
   temperature: PropTypes.number.isRequired,
 };
+
 ItemWeather.defaultProps = {
 };
 

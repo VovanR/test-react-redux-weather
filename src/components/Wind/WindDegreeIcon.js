@@ -11,18 +11,20 @@ class WindDegreeIcon extends PureComponent {
         style={{
           transform: `rotate(${degree}deg)`
         }}
-        >
+      >
         <use
           xmlnsXlink="http://www.w3.org/1999/xlink"
           xlinkHref="#wind-degree-icon"
-          />
+        />
       </svg>
     );
   }
 }
+
 WindDegreeIcon.propTypes = {
   degree: PropTypes.number.isRequired
 };
+
 WindDegreeIcon.defaultProps = {
 };
 

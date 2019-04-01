@@ -6,7 +6,7 @@ import './index.css';
 class CitySearchList extends Component {
   handleClickItem = (position) => {
     this.props.onClickCity(position);
-  }
+  };
 
   render() {
     const {data} = this.props;
@@ -20,16 +20,18 @@ class CitySearchList extends Component {
             name={item.name}
             position={item.position}
             onClick={this.handleClickItem}
-            />
+          />
         ))}
       </ul>
     );
   }
 }
+
 CitySearchList.propTypes = {
   data: PropTypes.array.isRequired,
   onClickCity: PropTypes.func.isRequired
 };
+
 CitySearchList.defaultProps = {
 };
 

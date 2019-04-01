@@ -42,4 +42,4 @@ function loadActivePosition() {
   } catch (err) {
     return null;
   }
-};
+}

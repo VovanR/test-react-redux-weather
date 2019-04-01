@@ -19,7 +19,7 @@ class Wind extends PureComponent {
           className="wind__speed"
           value={windSpeed}
           units="m/s"
-          />
+        />
 
         <span className="wind__wind">
           <WindDegreeIcon degree={windDegree}/>
@@ -32,11 +32,13 @@ class Wind extends PureComponent {
     );
   }
 }
+
 Wind.propTypes = {
   windDegree: PropTypes.number.isRequired,
   windDirection: PropTypes.string.isRequired,
   windSpeed: PropTypes.number.isRequired
 };
+
 Wind.defaultProps = {
 };
 

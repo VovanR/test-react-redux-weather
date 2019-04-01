@@ -27,6 +27,7 @@ class ItemDate extends Component {
     );
   }
 }
+
 ItemDate.propTypes = {
   day: PropTypes.number.isRequired,
   weekday: PropTypes.string.isRequired,

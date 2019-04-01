@@ -13,7 +13,7 @@ import Footer from '../Footer';
 import './index.css';
 
 // Show first date when there are more than 4 hours left until the new day
-const FIRST_DATE_HOURS_LEFT_LIMIT = 4
+const FIRST_DATE_HOURS_LEFT_LIMIT = 4;
 
 class App extends Component {
   componentWillMount(){
@@ -34,7 +34,7 @@ class App extends Component {
     } = this.props;
 
     if (activePosition && weather.data.length) {
-      let currentDate = null
+      let currentDate = null;
 
       return (
         <div className="app">
@@ -49,8 +49,8 @@ class App extends Component {
 
                 const partOfDay = hourToDayOrNight(hour);
 
-                const showFirstDate = currentDate === null && hour < (24 - FIRST_DATE_HOURS_LEFT_LIMIT)
-                const showDate = currentDate !== null && currentDate !== day
+                const showFirstDate = currentDate === null && hour < (24 - FIRST_DATE_HOURS_LEFT_LIMIT);
+                const showDate = currentDate !== null && currentDate !== day;
 
                 if (showDate || showFirstDate) {
                   currentDate = day;
@@ -62,16 +62,16 @@ class App extends Component {
                       day={day}
                       weekday={weekday}
                       variant={partOfDay}
-                      />
+                    />
                   );
                 }
 
                 acc.push(
                   <Item
-                      key={index}
-                      variant={partOfDay}
-                      {...current}
-                      />
+                    key={index}
+                    variant={partOfDay}
+                    {...current}
+                  />
                 );
 
                 return acc;

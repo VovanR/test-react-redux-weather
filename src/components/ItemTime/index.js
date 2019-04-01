@@ -23,9 +23,11 @@ class ItemTime extends PureComponent {
     );
   }
 }
+
 ItemTime.propTypes = {
   hour: PropTypes.number.isRequired,
 };
+
 ItemTime.defaultProps = {
 };
 

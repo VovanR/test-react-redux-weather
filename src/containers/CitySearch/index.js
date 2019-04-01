@@ -10,16 +10,16 @@ import './index.css';
 class CitySearch extends Component {
   handleChangeQuery = (e) => {
     this.props.onChangeCitySearch(e.target.value);
-  }
+  };
 
   handleClickCity = (position) => {
     this.props.onChangeActivePosition(position);
-  }
+  };
 
   render() {
     const {
       autocomplete
-    } = this.props
+    } = this.props;
 
     return (
       <div className="city-search">
@@ -32,13 +32,13 @@ class CitySearch extends Component {
           value={autocomplete.query}
           onChange={this.handleChangeQuery}
           autoFocus
-          />
+        />
 
         {autocomplete && autocomplete.data && (
           <CitySearchList
             data={autocomplete.data}
             onClickCity={this.handleClickCity}
-            />
+          />
         )}
 
         <Footer/>
@@ -46,8 +46,10 @@ class CitySearch extends Component {
     );
   }
 }
+
 CitySearch.propTypes = {
 };
+
 CitySearch.defaultProps = {
 };
 

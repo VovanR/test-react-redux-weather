@@ -1,4 +1,4 @@
-const minComfortTemperature = 10;
+const MIN_COMFORT_TEMPERATURE = 10;
 
 /**
  * isComfortTemperature
@@ -7,5 +7,5 @@ const minComfortTemperature = 10;
  * @returns {boolean}
  */
 export function isComfortTemperature(temperature) {
-  return temperature >= minComfortTemperature;
+  return temperature >= MIN_COMFORT_TEMPERATURE;
 }

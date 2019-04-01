@@ -7,9 +7,11 @@ const ErrorMessage = props => (
     {props.message}
   </div>
 );
+
 ErrorMessage.propTypes = {
   message: PropTypes.string.isRequired
 };
+
 ErrorMessage.defaultProps = {
 };
 

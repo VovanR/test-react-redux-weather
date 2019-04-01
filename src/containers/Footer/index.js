@@ -11,18 +11,22 @@ import './index.css';
 class Footer extends Component {
   handleClickClearActivePosition = () => {
     this.props.onClickClearActivePosition();
-  }
+  };
 
   render() {
+    const {
+      activePosition,
+    } = this.props;
+
     return (
       <footer className="footer">
         <Container>
           <div className="footer__content">
             <div className="footer__block footer__block_action">
-              {this.props.activePosition && (
+              {activePosition && (
                 <ClearActivePosition
                   onClick={this.handleClickClearActivePosition}
-                  />
+                />
               )}
             </div>
 
@@ -39,9 +43,11 @@ class Footer extends Component {
     );
   }
 }
+
 Footer.propTypes = {
   activePosition: PropTypes.object,
 };
+
 Footer.defaultProps = {
 };
 
